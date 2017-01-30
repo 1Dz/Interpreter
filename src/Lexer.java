@@ -1,7 +1,6 @@
 import com.sun.istack.internal.Nullable;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Deque;
+import java.util.LinkedList;
 
 public class Lexer {
 
@@ -29,7 +28,7 @@ public class Lexer {
     private int multiDigit()
     {
         String s = "";
-        while (Character.isDigit(currentChar))
+        while (currentChar != 0 && Character.isDigit(currentChar))
         {
             s += currentChar;
             advance();
@@ -68,8 +67,8 @@ public class Lexer {
         return t;
     }
 
-    public List<Token> tokenize() throws InterpretException {
-        List<Token> deque = new ArrayList<>();
+    public Deque<Token> tokenize() throws InterpretException {
+        Deque<Token> deque = new LinkedList<>();
         Token t = getNextToken();
         if(t != null)
             deque.add(t);

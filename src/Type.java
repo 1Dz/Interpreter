@@ -7,5 +7,7 @@ public enum Type {
     PLUS,
     MINUS,
     MULT,
-    DIV
+    DIV,
+    OPEN,
+    CLOSE
 }
